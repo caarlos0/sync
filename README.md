@@ -5,3 +5,5 @@
 [![](http://img.shields.io/badge/godoc-reference-5272B4.svg?style=for-the-badge)](https://pkg.go.dev/github.com/caarlos0/sync/v6)
 
 Simple sync primitives I use here and there, extracted so I can reuse them.
+
+TODO: move more code from other places into this lib.
