@@ -1,14 +1,16 @@
-package cio
+package safe_test
 
 import (
 	"bytes"
 	"io"
 	"testing"
+
+	"github.com/caarlos0/sync/safe"
 )
 
-func TestSafeReadWriter(t *testing.T) {
+func TestReadWriter(t *testing.T) {
 	var b bytes.Buffer
-	rw := SafeReadWriter(&b)
+	rw := safe.ReadWriter(&b)
 
 	for i := 0; i < 100; i++ {
 		go func() {
@@ -20,9 +22,9 @@ func TestSafeReadWriter(t *testing.T) {
 	}
 }
 
-func TestSafeWriter(t *testing.T) {
+func TestWriter(t *testing.T) {
 	var b bytes.Buffer
-	rw := SafeWriter(&b)
+	rw := safe.Writer(&b)
 
 	for i := 0; i < 100; i++ {
 		go func() {
@@ -31,9 +33,9 @@ func TestSafeWriter(t *testing.T) {
 	}
 }
 
-func TestSafeReader(t *testing.T) {
+func TestReader(t *testing.T) {
 	var b bytes.Buffer
-	rw := SafeReader(&b)
+	rw := safe.Reader(&b)
 
 	for i := 0; i < 100; i++ {
 		go func() {
